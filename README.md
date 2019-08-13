@@ -1,9 +1,9 @@
 To run this locally:
-	1. Install Node v8.9.4 or higher
-	2. npm i
-	3. npm run start
-	4. The app runs on 0.0.0.0:8000
-	If 0.0.0.0:8000 doesn't work, you can change the host value in webpack.config to localhost.
+  1. Install Node v8.9.4 or higher
+  2. npm i
+  3. npm run start
+  4. The app runs on 0.0.0.0:8000
+  If 0.0.0.0:8000 doesn't work, you can change the host value in webpack.config from 0.0.0.0 to localhost.
 
 Packages installed:
 * @babel/core (The most core modules of babel)
