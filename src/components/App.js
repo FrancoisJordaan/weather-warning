@@ -37,7 +37,7 @@ export class App extends React.Component {
 
 		return (
 			<div className="container">
-				<h2 style={{textAlign: "center"}}>The temperature forecast for Cape Town</h2>
+				<h2 style={{textAlign: "center"}}>The temperature forecast in Cape Town</h2>
 				<TemperatureWarning currentTemperature={currentTemperature} previousTemperature={previousTemperature} />
 				{hourlyData.length > 0 && <MainDisplay hourlyData={hourlyData} />}
 				{hourlyData.length <= 0 && <button style={{textAlign: "center"}} className="btn-floating btn-large waves-effect waves-light blue" onClick={this.getWeather}>Retry</button>}
