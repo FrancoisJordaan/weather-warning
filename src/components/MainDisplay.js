@@ -15,14 +15,18 @@ export class MainDisplay extends React.Component {
 
 		return (
 			<div>
-				<button onClick={this.temperatureToggle}>{this.state.tempMeasurement === 'Fahrenheit' ? 'Convert to Celsius' : 'Convert to Fahrenheit'}</button>
-				{hourlyData.map(hour => {
-					return (
-						<p key={hour.time}>
-							On {moment(hour.time*1000).format("DD MMM YYYY hh:mm a")} the temperature will be {(this.state.tempMeasurement === 'Fahrenheit') ? `${hour.temperature}℉` : `${((hour.temperature - 32) * 5 / 9).toFixed(2)}°C`}
-						</p>
-					)
-				})}
+				<div style={{textAlign: "center"}}>
+					<button className="waves-effect waves-light btn-small" onClick={this.temperatureToggle}>{this.state.tempMeasurement === 'Fahrenheit' ? 'Convert to Celsius' : 'Convert to Fahrenheit'}</button>
+				</div>
+				<div className="collection">
+					{hourlyData.map(hour => {
+						return (
+							<p className="collection-item" key={hour.time}>
+								On {moment(hour.time*1000).format("DD MMM YYYY hh:mm a")} the temperature will be {(this.state.tempMeasurement === 'Fahrenheit') ? `${hour.temperature}℉` : `${((hour.temperature - 32) * 5 / 9).toFixed(2)}°C`}
+							</p>
+						)
+					})}
+				</div>
 			</div>
 		)
 	}
