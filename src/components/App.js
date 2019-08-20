@@ -17,7 +17,7 @@ export class App extends React.Component {
 
 	getWeather = async () => {
 		try {
-			const response = await fetch(`https://ec-weather-proxy.appspot.com/forecast/29e4a4ce0ec0068b03fe203fa81d457f/-33.9249,18.4241?delay=5&chaos=0.2/api.darksky.net/forecast/29e4a4ce0ec0068b03fe203fa81d457f/-33.9249,18.4241?exclude=flags,alerts,daily`, { mode: 'no-cors' });
+			const response = await fetch(`https://fsjordaan-eval-test.apigee.net/data-filing`);
 			const weatherObject = await response.json();
 			const data = await weatherObject["hourly"]["data"].slice(0, 23); // Limit the result to a 24 hour forecast
 			this.setState({
