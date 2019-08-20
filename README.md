@@ -18,3 +18,5 @@ Packages installed:
 * webpack-dev-server (Dev server which updates after saving changes)
 * react-proxy-loader (to comply with CORS)
 * moment (Convert time formats)
+
+I'm using Apigee, which is an API management tool from Google, to retrieve data from the Dark Sky API via a proxy.

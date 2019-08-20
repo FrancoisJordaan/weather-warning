@@ -17,9 +17,9 @@ export class App extends React.Component {
 
 	getWeather = async () => {
 		try {
-			const response = await fetch(`api`);
+			const response = await fetch(`https://fsjordaan-eval-test.apigee.net/data-filing`);
 			const weatherObject = await response.json();
-			const data = await weatherObject["hourly"]["data"].slice(0, 23);
+			const data = await weatherObject["hourly"]["data"].slice(0, 24); // Limit the result to a 24 hour forecast
 			this.setState({
 				hourlyData: data,
 				previousTemperature: this.state.currentTemperature,
@@ -36,11 +36,11 @@ export class App extends React.Component {
 		const { hourlyData, previousTemperature, currentTemperature } = this.state
 
 		return (
-			<div>
-				<h1>The temperature forecast for Cape Town</h1>
+			<div className="container">
+				<h2 style={{textAlign: "center"}}>The temperature forecast in Cape Town</h2>
 				<TemperatureWarning currentTemperature={currentTemperature} previousTemperature={previousTemperature} />
 				{hourlyData.length > 0 && <MainDisplay hourlyData={hourlyData} />}
-				{hourlyData.length <= 0 && <button onClick={this.getWeather}>Retry API</button>}
+				{hourlyData.length <= 0 && <button style={{textAlign: "center"}} className="btn-floating btn-large waves-effect waves-light blue" onClick={this.getWeather}>Retry</button>}
 			</div>
 		)
 	}
