@@ -19,7 +19,7 @@ export class App extends React.Component {
 		try {
 			const response = await fetch(`https://fsjordaan-eval-test.apigee.net/data-filing`);
 			const weatherObject = await response.json();
-			const data = await weatherObject["hourly"]["data"].slice(1, 25); // Limit the result to a 24 hour forecast and exclude 1 hour old data
+			const data = await weatherObject["hourly"]["data"].slice(0, 24); // Limit the result to a 24 hour forecast
 			this.setState({
 				hourlyData: data,
 				previousTemperature: this.state.currentTemperature,
