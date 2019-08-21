@@ -8,5 +8,5 @@ export const TemperatureWarning = props => {
 		showWarning = true
 	}
 
-	return <div>{showWarning && <h1>WARNING! Exptreme temperatures</h1>}</div>
+	return <div style={{textAlign: "center"}}>{showWarning && <div><i class="large material-icons">warning</i><h2>WARNING! Extreme temperatures</h2></div>}</div>
 };
