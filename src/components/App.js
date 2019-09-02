@@ -17,7 +17,7 @@ export class App extends React.Component {
 
 	getWeather = async () => {
 		try {
-			const response = await fetch(`https://fsjordaan-eval-test.apigee.net/data-filing`);
+			const response = await fetch(`https://fsjordaan-eval-test.apigee.net/data-filing`, {cache: 'no-cache'});
 			const weatherObject = await response.json();
 			const data = await weatherObject["hourly"]["data"].slice(0, 24); // Limit the result to a 24 hour forecast
 			this.setState({
