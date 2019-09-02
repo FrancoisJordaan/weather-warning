@@ -23,7 +23,7 @@ export class App extends React.Component {
 			this.setState({
 				hourlyData: data,
 				previousTemperature: this.state.currentTemperature,
-				currentTemperature: (data[0].temperature - 32 * 5 / 9) // Convert fahrenheit to celcius formula
+				currentTemperature: ((data[0].temperature - 32) * 5 / 9) // Convert fahrenheit to celcius formula
 			});
 		}
 		catch (err) {
