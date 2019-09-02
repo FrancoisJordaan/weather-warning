@@ -23,7 +23,7 @@ export class App extends React.Component {
 			this.setState({
 				hourlyData: data,
 				previousTemperature: this.state.currentTemperature,
-				currentTemperature: (data[0].temperature - 32 * 5 / 9) // Convert fahrenheit to celcius formula
+				currentTemperature: ((data[0].temperature - 32) * 5 / 9) // Convert fahrenheit to celcius formula
 			});
 		}
 		catch (err) {
@@ -33,13 +33,18 @@ export class App extends React.Component {
 	};
 
 	render() {
-		const { hourlyData, previousTemperature, currentTemperature } = this.state
+		const { hourlyData, previousTemperature, currentTemperature } = this.state;
+		const retryButtonStyle = {
+			float: "left",
+			marginLeft: "50px"
+		};
+		const appHeaderStyle = {textAlign: "center"};
 
 		return (
 			<div>
-				<button style={{float: "left", marginLeft: "50px"}} className="btn-floating btn-large waves-effect waves-light blue" onClick={this.getWeather}>Retry</button>
+				<button style={retryButtonStyle} className="btn-floating btn-large waves-effect waves-light blue" onClick={this.getWeather}>Retry</button>
 				<div className="container">
-					<h2 style={{textAlign: "center"}}>The temperature forecast in Cape Town</h2>
+					<h2 style={appHeaderStyle}>The temperature forecast in Cape Town</h2>
 					<TemperatureWarning currentTemperature={currentTemperature} previousTemperature={previousTemperature} />
 					{hourlyData.length > 0 && <MainDisplay hourlyData={hourlyData} />}
 				</div>
